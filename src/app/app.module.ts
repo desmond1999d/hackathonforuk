@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {RootModule} from './modules/root-module/root.module';
+import {GoogleApiService} from './services/GoogleApiService';
 
 @NgModule({
   declarations: [
@@ -10,9 +12,12 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RootModule
   ],
-  providers: [],
+  providers: [
+    GoogleApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
