@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {TranslationResponse} from '../model/TranslationResponse';
 import {Observable} from 'rxjs';
 import {SearchResponse} from '../model/SearchResponse';
@@ -32,6 +32,11 @@ export class GoogleApiService {
   }
 
   public getWebPageHtml(url: string): Observable<string> {
-    return this.http.get(url, {responseType: 'text'});
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*'
+      })
+    };
+    return this.http.get(url, httpOptions);
   }
 }

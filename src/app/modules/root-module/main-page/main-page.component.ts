@@ -18,7 +18,10 @@ export class MainPageComponent implements OnInit {
   constructor(private googleApi: GoogleApiService) {
     this.fieldDelimeter = '?!';
     this.objectDelimeter = '$!';
-    googleApi.getWebPageHtml('https://cats.com/').subscribe(html => console.log(html));
+    googleApi.getWebPageHtml('https://cors-anywhere.herokuapp.com/https://stackoverflow.com/questions/56969472/angular-http-get-url-as-raw-html')
+      .subscribe(html => {
+        console.log(html);
+      });
   }
 
   ngOnInit() {
