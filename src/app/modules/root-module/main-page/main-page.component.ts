@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Pipe, PipeTransform} from '@angular/core';
 import {GoogleApiService} from '../../../services/GoogleApiService';
 import {Item} from '../../../model/SearchResponse';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-main-page',
@@ -18,10 +19,6 @@ export class MainPageComponent implements OnInit {
   constructor(private googleApi: GoogleApiService) {
     this.fieldDelimeter = '?!';
     this.objectDelimeter = '$!';
-    googleApi.getWebPageHtml('https://cors-anywhere.herokuapp.com/https://stackoverflow.com/questions/56969472/angular-http-get-url-as-raw-html')
-      .subscribe(html => {
-        console.log(html);
-      });
   }
 
   ngOnInit() {
