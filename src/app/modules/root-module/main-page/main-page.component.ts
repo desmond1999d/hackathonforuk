@@ -27,6 +27,7 @@ export class MainPageComponent implements OnInit {
 
   changeRequest(event) {
     this.request = event.target.value;
+    $(".error-message").hide();
   }
 
   changeCountry(event) {
