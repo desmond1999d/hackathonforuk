@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {TranslationResponse} from '../model/TranslationResponse';
 import {Observable} from 'rxjs';
 import {SearchResponse} from '../model/SearchResponse';
+import * as $ from "jquery";
 
 @Injectable()
 export class GoogleApiService {
@@ -29,14 +30,5 @@ export class GoogleApiService {
       params: params
     };
     return this.http.get<SearchResponse>('https://www.googleapis.com/customsearch/v1', httpOptions);
-  }
-
-  public getWebPageHtml(url: string): Observable<string> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Access-Control-Allow-Origin': '*'
-      })
-    };
-    return this.http.get<string>(url, httpOptions);
   }
 }
