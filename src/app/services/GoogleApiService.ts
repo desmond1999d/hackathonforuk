@@ -37,6 +37,6 @@ export class GoogleApiService {
         'Access-Control-Allow-Origin': '*'
       })
     };
-    return this.http.get(url, httpOptions);
+    return this.http.get<string>(url, httpOptions);
   }
 }

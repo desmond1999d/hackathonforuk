@@ -1,15 +1,16 @@
 <div class="container">
   <h2>Hackathon4uk</h2>
   <div class="input-container">
-    <input id="search-bar" type="text" (keyup)="changeRequest($event)"/>
+    <input id="search-bar" type="text" (keyup)="changeRequest($event)" (keyup.enter)="goToUrl()"/>
     <select class="abc" title="country" (change)="changeCountry($event)">
       <option hidden selected>Country</option>
-      <option value="pl">Poland</option>
+      <option value="pl" selected>Poland</option>
       <option value="ka">Georgia</option>
       <option value="sk">Slovakia</option>
       <option value="de">Germany</option>
     </select>
   </div>
+  <div class="error-message">Please enter a value in the search bar</div>
   <button class="buttons" (click)="goToUrl()">Search</button>
   <div class="links-container">
     <div *ngFor="let item of items">

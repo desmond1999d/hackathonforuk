@@ -1,3 +1,4 @@
+import * as $ from "jquery";
 import {Component, OnInit} from '@angular/core';
 import {GoogleApiService} from '../../../services/GoogleApiService';
 import {Item} from '../../../model/SearchResponse';
@@ -74,10 +75,11 @@ export class MainPageComponent implements OnInit {
 
   validate(): boolean {
     if (this.country === undefined) {
-      alert('Please choose a country of occupation');
+      this.country = "pl"
       return false;
     } else if (this.request === undefined || this.request === '') {
-      alert('Please enter the request');
+      // alert('Please enter the request');
+      $(".error-message").show();
       return false;
     }
     return true;
